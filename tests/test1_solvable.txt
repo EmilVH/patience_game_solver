@@ -1,0 +1,9 @@
+10 6 A K 9 6 7 10 
+K Q V K 6 A Q A 
+9 7 A K 6 10 K 8 
+Q V Q A V 9 10 7 
+7 K Q 9 K 8 A 7 
+9 Q Q 9 V 8 9 7 
+10 A 10 V 6 8 10 8 
+10 8 6 8 7 6 7 6 
+A V V Q K 9 V 8 
