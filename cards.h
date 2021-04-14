@@ -120,7 +120,6 @@ std::istream &operator>>(std::istream &in, Board &board) {
         for (auto &deck : board.decks_) {
             std::string tmp;
             in >> tmp;
-            //std::cerr << tmp;
             deck.emplace_back(mp[tmp]);
         }
     }
@@ -134,8 +133,6 @@ bool solute(Board board){
     used.insert(board.Configuration());
     que.push_back(std::move(board));
     for (int l = 0; l < que.size(); ++l) {
-        if (l % 10000 == 9999)
-            std::cerr << l << std::endl;
         auto now = que[l];
         if (now.Configuration() == "||||||||") {
             return true;
