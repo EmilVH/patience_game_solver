@@ -14,22 +14,11 @@
 #include <unordered_set>
 #include <fstream>
 
-class cards {
-
-};
 
 struct CardsSequence {
     int top, bot;
 
     explicit CardsSequence(int card_num) : top(card_num), bot(card_num) {}
-
-    /*CardsSequence(const CardsSequence &) = delete;
-
-    CardsSequence &operator=(const CardsSequence &) = delete;
-
-    CardsSequence(CardsSequence &&) = default;
-
-    CardsSequence &operator=(CardsSequence &&) = default;*/
 
     bool operator<(const CardsSequence &other) const {
         return top < other.bot;
@@ -55,13 +44,13 @@ public:
             return false;
         }
         if (decks_[top].empty()) {
-            CardsSequence tmp(std::move(decks_[down].back()));
+            CardsSequence tmp(decks_[down].back());
             decks_[down].pop_back();
-            decks_[top].push_back(std::move(tmp));
+            decks_[top].push_back(tmp);
             return false;
         } else {
             if (decks_[down].back() < decks_[top].back()) {
-                CardsSequence tmp(std::move(decks_[down].back()));
+                CardsSequence tmp(decks_[down].back());
                 decks_[down].pop_back();
                 if (decks_[top].back().bot == tmp.top + 1) {
                     decks_[top].back().bot = tmp.bot;
@@ -70,7 +59,7 @@ public:
                         return true;
                     }
                 } else {
-                    decks_[top].push_back(std::move(tmp));
+                    decks_[top].push_back(tmp);
                 }
                 return false;
             } else {
@@ -113,24 +102,10 @@ public:
         return ans;
     }
 
-    /*std::vector<std::pair<int, int>> OrdinaryMoves() {
-        std::vector<std::pair<int, int>> ans;
-        for (size_t i = 0; i < DECKS_NUM; ++i) {
-            for (size_t j = 0; j < DECKS_NUM; ++j) {
-                if (i == j) continue;
-                if (decks[i].back() < decks[j].back()) {
-                    ans.emplace_back(i, j);
-                }
-            }
-        }
-        return ans;
-    }*/
-
-    friend std::istream &operator<<(std::istream &in, Board &board);
+    friend std::istream &operator>>(std::istream &in, Board &board);
 };
 
-std::istream &operator<<(std::istream &in, Board &board) {
-    // TODO;
+std::istream &operator>>(std::istream &in, Board &board) {
     std::unordered_map<std::string, int> mp;
     mp["6"] = 0;
     mp["7"] = 1;
@@ -187,9 +162,8 @@ bool solute(Board board){
 bool solution() {
     std::ifstream in("test.txt");
     Board board;
-    in << board;
+    in >> board;
     bool res = solute(board);
-    //std::cerr << que.size();
     return res;
 }
 
