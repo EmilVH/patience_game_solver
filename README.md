@@ -1,4 +1,4 @@
-![Build](https://github.com/EmilVH/patience_game_solver/workflows/Build/badge.svg)
+![Build](https://github.com/EmilVH/patience_game_solver/workflows/Build/badge.svg)\
 ***Описание***\
 Программе подаётся на ввод название файла, где лежит описание колоды в формате:\
 10 8 V K 9 7 7 8\
@@ -12,7 +12,7 @@ K V Q K 6 9 9 Q\
 A V Q V 7 Q K 6\
 Где столбцы обозначают стопки карт, верхние карты стопки снизу\
 Ответ выдаётся в формате Solvable\Non-solvable\
-Основнвая логика находится в cards.h\
+Основнвая логика находится в cards.h
 
 В файле generator.py находится генератор случайных раскладок колоды
 ***Решение:***\
