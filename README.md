@@ -1,3 +1,4 @@
+![Build](https://github.com/EmilVH/patience_game_solver/workflows/Build/badge.svg)
 ***Описание***\
 Программе подаётся на ввод название файла, где лежит описание колоды в формате:\
 10 8 V K 9 7 7 8\
